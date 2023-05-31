@@ -2,6 +2,9 @@ dev:
 	docker compose up --build --remove-orphans --detach &&\
 	docker compose exec --user=app golang bash
 
+exec:
+	docker compose exec golang bash
+
 exec-root:
 	docker compose exec --user=root golang bash
 
