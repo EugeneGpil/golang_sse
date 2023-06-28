@@ -3,10 +3,11 @@ package main
 import (
 	"net/http"
 
+	"github.com/EugeneGpil/golang_sse/app/routes/get_events"
+	"github.com/EugeneGpil/golang_sse/app/routes/post_message"
+	"github.com/EugeneGpil/golang_sse/app/routes/post_remove_stream"
+
 	"github.com/EugeneGpil/golang_sse/app/globals"
-	"github.com/EugeneGpil/golang_sse/app/routes/events"
-	"github.com/EugeneGpil/golang_sse/app/routes/message"
-	"github.com/EugeneGpil/golang_sse/app/routes/remove_stream"
 )
 
 func main() {
@@ -16,9 +17,9 @@ func main() {
 
 	sever.CreateStream("messages")
 
-	events.Define()
-	message.Define()
-	remove_stream.Define()
+	get_events.Run()
+	post_message.Run()
+	post_remove_stream.Run()
 
 	http.ListenAndServe(":8080", mux)
 }
