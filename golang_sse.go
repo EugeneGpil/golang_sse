@@ -2,29 +2,21 @@ package main
 
 import (
 	"net/http"
-	"time"
 
-	sse "github.com/r3labs/sse/v2"
+	"github.com/EugeneGpil/golang_sse/app/routes/events"
+	"github.com/EugeneGpil/golang_sse/app/routes/remove_stream"
+	"github.com/EugeneGpil/golang_sse/app/routes/message"
+	"github.com/r3labs/sse/v2"
 )
 
 func main() {
 	server := sse.New()
 	server.CreateStream("messages")
-
 	mux := http.NewServeMux()
-	mux.HandleFunc("/events/", func(w http.ResponseWriter, r *http.Request) {
-		go func () {
-			nowPlus10Sec := time.Now().Add(10 * time.Second)
-			for time.Now().Before(nowPlus10Sec) {
-				time.Sleep(time.Second)
-				server.Publish("messages", &sse.Event{
-					Data: []byte("ping"),
-				})
-			}
-		}()
 
-		server.ServeHTTP(w, r)
-	})
+	events.Define(server, mux)
+	message.Define(server, mux)
+	remove_stream.Define(server, mux)
 
 	http.ListenAndServe(":8080", mux)
 }
