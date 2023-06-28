@@ -4,25 +4,14 @@ import (
 	"net/http"
 
 	"github.com/EugeneGpil/golang_sse/app/globals"
+	"github.com/EugeneGpil/golang_sse/app/utils/getFormattedUrls"
 )
 
 func Run(httpMethod string, url string, handler func(http.ResponseWriter, *http.Request)) {
-	var lastUrlChar byte
-	if len(url) == 0 {
-		lastUrlChar = '#'
-	} else {
-		lastUrlChar = url[len(url)-1]
-	}
+	url1, url2 := getFormattedUrls.Run(url)
 
-	urlWithoutLastSlash := url
-	if lastUrlChar == '/' {
-		urlWithoutLastSlash = urlWithoutLastSlash[:len(urlWithoutLastSlash)-1]
-	}
-
-	urlWithSlash := urlWithoutLastSlash + "/"
-
-	addRoute(httpMethod, urlWithSlash, handler)
-	addRoute(httpMethod, urlWithoutLastSlash, handler)
+	addRoute(httpMethod, url1, handler)
+	addRoute(httpMethod, url2, handler)
 }
 
 func addRoute(method string, url string, handler func(http.ResponseWriter, *http.Request)) {
