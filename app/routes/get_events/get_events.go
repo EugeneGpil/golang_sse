@@ -10,7 +10,7 @@ import (
 func Run() {
 	server := globals.GetServer()
 
-	defineRoute.Run(http.MethodGet, "/events/", func(w http.ResponseWriter, r *http.Request) {
+	defineRoute.Run(http.MethodGet, "events/", func(w http.ResponseWriter, r *http.Request) {
 		server.ServeHTTP(w, r)
 	})
 }

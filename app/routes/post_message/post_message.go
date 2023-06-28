@@ -11,7 +11,7 @@ import (
 func Run() {
 	server := globals.GetServer()
 
-	defineRoute.Run(http.MethodPost, "/message/", func(w http.ResponseWriter, request *http.Request) {
+	defineRoute.Run(http.MethodPost, "/message", func(w http.ResponseWriter, request *http.Request) {
 		query := request.URL.Query()
 
 		streamName := query.Get("stream")

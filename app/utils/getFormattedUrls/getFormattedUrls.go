@@ -49,7 +49,7 @@ func addFirstSlash(url string) string {
 		return url
 	}
 
-	return url + "/"
+	return "/" + url
 }
 
 func removeLastSlash(url string) string {
