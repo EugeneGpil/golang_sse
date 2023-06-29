@@ -9,8 +9,9 @@ import (
 
 func Run() {
 	server := globals.GetServer()
+	mux := globals.GetMux()
 
-	defineRoute.Run(http.MethodPost, "/remove_stream/", func(w http.ResponseWriter, r *http.Request) {
+	defineRoute.Run(mux, http.MethodPost, "/remove_stream/", func(w http.ResponseWriter, r *http.Request) {
 		server.RemoveStream("messages")
 	})
 }

@@ -9,8 +9,9 @@ import (
 
 func Run() {
 	server := globals.GetServer()
+	mux := globals.GetMux()
 
-	defineRoute.Run(http.MethodGet, "events/", func(w http.ResponseWriter, r *http.Request) {
+	defineRoute.Run(mux, http.MethodGet, "events/", func(w http.ResponseWriter, r *http.Request) {
 		server.ServeHTTP(w, r)
 	})
 }

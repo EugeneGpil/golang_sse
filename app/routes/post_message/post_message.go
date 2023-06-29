@@ -10,8 +10,9 @@ import (
 
 func Run() {
 	server := globals.GetServer()
+	mux := globals.GetMux()
 
-	defineRoute.Run(http.MethodPost, "/message", func(w http.ResponseWriter, request *http.Request) {
+	defineRoute.Run(mux, http.MethodPost, "/message", func(w http.ResponseWriter, request *http.Request) {
 		query := request.URL.Query()
 
 		streamName := query.Get("stream")
