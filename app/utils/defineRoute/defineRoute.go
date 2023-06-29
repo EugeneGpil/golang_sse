@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/EugeneGpil/golang_sse/app/globals"
-	"github.com/EugeneGpil/golang_sse/app/utils/getFormattedUrls"
+	"github.com/EugeneGpil/getFormattedUrls"
 )
 
 func Run(httpMethod string, url string, handler func(http.ResponseWriter, *http.Request)) {
