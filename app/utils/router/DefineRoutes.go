@@ -9,9 +9,7 @@ import (
 var m *http.ServeMux
 var routes []Route
 
-func DefineRoutes () *http.ServeMux {
-	m = http.NewServeMux()
-
+func DefineRoutes (m *http.ServeMux) {
 	urlRoutesMap := make(map[string][]Route)
 
 	for _, route := range routes {
@@ -27,8 +25,6 @@ func DefineRoutes () *http.ServeMux {
 		addHandlers(url1, routes)
 		addHandlers(url2, routes)
 	}
-
-	return m
 }
 
 func addHandlers(url string, routes []Route) {

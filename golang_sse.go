@@ -20,7 +20,9 @@ func main() {
 	post_message.Run()
 	post_remove_stream.Run()
 
-	mux := router.DefineRoutes()
+	mux := http.NewServeMux()
+
+	router.DefineRoutes(mux)
 	
 	http.ListenAndServe(":8080", mux)
 }
