@@ -6,7 +6,12 @@ import (
 	"github.com/EugeneGpil/getFormattedUrls"
 )
 
-func DefineRoutes () {
+var m *http.ServeMux
+var routes []Route
+
+func DefineRoutes () *http.ServeMux {
+	m = http.NewServeMux()
+
 	urlRoutesMap := make(map[string][]Route)
 
 	for _, route := range routes {
@@ -22,6 +27,8 @@ func DefineRoutes () {
 		addHandlers(url1, routes)
 		addHandlers(url2, routes)
 	}
+
+	return m
 }
 
 func addHandlers(url string, routes []Route) {

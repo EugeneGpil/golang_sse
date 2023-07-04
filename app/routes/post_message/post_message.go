@@ -4,15 +4,14 @@ import (
 	"net/http"
 
 	"github.com/EugeneGpil/golang_sse/app/globals"
-	"github.com/EugeneGpil/golang_sse/app/utils/defineRoute"
+	"github.com/EugeneGpil/golang_sse/app/utils/router"
 	"github.com/r3labs/sse/v2"
 )
 
 func Run() {
 	server := globals.GetServer()
-	mux := globals.GetMux()
 
-	defineRoute.Run(mux, http.MethodPost, "/message", func(w http.ResponseWriter, request *http.Request) {
+	router.AddRoute(http.MethodPost, "/message/", func(w http.ResponseWriter, request *http.Request) {
 		query := request.URL.Query()
 
 		streamName := query.Get("stream")
