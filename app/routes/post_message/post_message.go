@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/EugeneGpil/golang_sse/app/globals"
-	"github.com/EugeneGpil/golang_sse/app/utils/router"
+	"github.com/EugeneGpil/router"
 	"github.com/r3labs/sse/v2"
 )
 
