@@ -1,4 +1,4 @@
-package get_events
+package routes
 
 import (
 	"net/http"
@@ -7,7 +7,7 @@ import (
 	"github.com/EugeneGpil/router"
 )
 
-func Run() {
+func GetEvents() {
 	server := globals.GetServer()
 
 	router.AddRoute(http.MethodGet, "/events/", func(w http.ResponseWriter, r *http.Request) {

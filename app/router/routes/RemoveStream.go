@@ -1,4 +1,4 @@
-package post_remove_stream
+package routes
 
 import (
 	"net/http"
@@ -7,7 +7,7 @@ import (
 	"github.com/EugeneGpil/router"
 )
 
-func Run() {
+func RemoveStream() {
 	server := globals.GetServer()
 
 	router.AddRoute(http.MethodPost, "/remove_stream/", func(w http.ResponseWriter, r *http.Request) {

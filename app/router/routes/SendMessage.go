@@ -1,4 +1,4 @@
-package post_message
+package routes
 
 import (
 	"net/http"
@@ -8,7 +8,7 @@ import (
 	"github.com/r3labs/sse/v2"
 )
 
-func Run() {
+func SendMessage() {
 	server := globals.GetServer()
 
 	router.AddRoute(http.MethodPost, "/message/", func(w http.ResponseWriter, request *http.Request) {
