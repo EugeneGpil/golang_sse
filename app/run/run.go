@@ -3,18 +3,18 @@ package run
 import (
 	"net/http"
 
-	sseRouter "github.com/EugeneGpil/golang_sse/app/router"
 	"github.com/EugeneGpil/router"
+	"github.com/r3labs/sse/v2"
 
-	"github.com/EugeneGpil/golang_sse/app/globals"
+	sseRouter "github.com/EugeneGpil/golang_sse/app/router"
 )
 
 func Run() {
-	sever := globals.GetServer()
+	server := sse.New()
 
-	sever.CreateStream("messages")
+	server.CreateStream("messages")
 
-	sseRouter.Register()
+	sseRouter.Register(server)
 
 	mux := http.NewServeMux()
 
