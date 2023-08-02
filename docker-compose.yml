@@ -15,4 +15,4 @@ services:
     restart: unless-stopped
     user: "${ID_GROUP}:${ID_USER}"
     ports:
-      - "${SERVER_PORT}:8080"
+      - "${FORWARD_APP_PORT}:8080"
