@@ -3,12 +3,12 @@ package routes
 import (
 	"net/http"
 
+	"github.com/EugeneGpil/golang_sse/app/globals/sseServer"
 	"github.com/EugeneGpil/router"
-	"github.com/r3labs/sse/v2"
 )
 
-func RemoveStream(server *sse.Server) {
+func RemoveStream() {
 	router.AddRoute(http.MethodPost, "/remove_stream/", func(w http.ResponseWriter, r *http.Request) {
-		server.RemoveStream("messages")
+		sseServer.Get().RemoveStream("messages")
 	})
 }
