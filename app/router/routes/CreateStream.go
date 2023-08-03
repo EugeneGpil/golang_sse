@@ -7,6 +7,6 @@ import (
 	"github.com/EugeneGpil/router"
 )
 
-func RemoveStream() {
-	router.AddRoute(http.MethodDelete, "/remove_stream/", controllers.RemoveStream)
+func CreateStream() {
+	router.AddRoute(http.MethodPost, "/create_stream/", controllers.CreateStream)
 }

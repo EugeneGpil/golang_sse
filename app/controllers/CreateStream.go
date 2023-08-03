@@ -6,10 +6,10 @@ import (
 	"github.com/EugeneGpil/golang_sse/app/globals/sseServer"
 )
 
-func RemoveStream(writer http.ResponseWriter, request *http.Request) {
+func CreateStream(writer http.ResponseWriter, request *http.Request) {
 	query := request.URL.Query()
 
 	streamName := query.Get("stream")
 
-	sseServer.Get().RemoveStream(streamName)
+	sseServer.Get().CreateStream(streamName)
 }

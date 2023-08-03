@@ -6,6 +6,6 @@ import (
 	"github.com/EugeneGpil/golang_sse/app/globals/sseServer"
 )
 
-func Listen(w http.ResponseWriter, r *http.Request) {
-	sseServer.Get().ServeHTTP(w, r)
+func Listen(writer http.ResponseWriter, request *http.Request) {
+	sseServer.Get().ServeHTTP(writer, request)
 }
