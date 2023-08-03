@@ -1,4 +1,4 @@
-package run
+package app
 
 import (
 	"net/http"
@@ -9,7 +9,7 @@ import (
 func Run() {
 	mux := http.NewServeMux()
 
-	router.RegisterRoutes(mux)
+	router.Register(mux)
 
 	http.ListenAndServe(":8080", mux)
 }

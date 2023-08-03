@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/EugeneGpil/golang_sse/app/run"
+	"github.com/EugeneGpil/golang_sse/app"
 )
 
 func main() {
-	run.Run()
+	app.Run()
 }

@@ -7,7 +7,7 @@ import (
 	"github.com/r3labs/sse/v2"
 )
 
-func SendMessage(w http.ResponseWriter, request *http.Request) {
+func Send(w http.ResponseWriter, request *http.Request) {
 	query := request.URL.Query()
 
 	streamName := query.Get("stream")
