@@ -13,7 +13,7 @@ func RegisterRoutes(mux *http.ServeMux) {
 
 	server.CreateStream("messages")
 
-	routes.GetEvents()
+	routes.Listen()
 	routes.RemoveStream()
 	routes.SendMessage()
 
