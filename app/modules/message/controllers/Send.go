@@ -3,7 +3,7 @@ package controllers
 import (
 	"net/http"
 
-	"github.com/EugeneGpil/golang_sse/app/globals/sseServer"
+	"github.com/EugeneGpil/golang_sse/app/ship/sseServer"
 	"github.com/r3labs/sse/v2"
 )
 

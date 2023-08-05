@@ -3,7 +3,7 @@ package app
 import (
 	"net/http"
 
-	"github.com/EugeneGpil/golang_sse/app/router"
+	"github.com/EugeneGpil/golang_sse/app/ship/router"
 )
 
 func Run() {

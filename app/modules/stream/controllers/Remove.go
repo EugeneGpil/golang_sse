@@ -3,7 +3,7 @@ package controllers
 import (
 	"net/http"
 
-	"github.com/EugeneGpil/golang_sse/app/globals/sseServer"
+	"github.com/EugeneGpil/golang_sse/app/ship/sseServer"
 )
 
 func Remove(writer http.ResponseWriter, request *http.Request) {
