@@ -11,6 +11,12 @@ RUN \
     useradd -u ${ID_USER} -m app -g app &&\
     usermod -a -G www-data app &&\
     \
+    echo "run apt-get update for installing packages" &&\
+    apt-get update &&\
+    \
+    echo "install build-essential wich includes make utitity to run commands from Makefile" &&\
+    apt-get install -y build-essential &&\
+    \
     echo "installing git for displaying changes in vscode" &&\
     apt-get update &&\
     apt-get install -y git &&\
