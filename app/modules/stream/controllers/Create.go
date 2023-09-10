@@ -12,4 +12,6 @@ func Create(writer http.ResponseWriter, request *http.Request) {
 	streamName := query.Get("stream")
 
 	sseServer.Get().CreateStream(streamName)
+
+	writer.WriteHeader(http.StatusOK)
 }
