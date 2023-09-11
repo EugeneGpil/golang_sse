@@ -1,6 +1,7 @@
 package should_create_stream
 
 import (
+	// "io"
 	"net/http"
 	"net/url"
 	"testing"
@@ -24,6 +25,10 @@ func Test_should_create_stream(t *testing.T) {
 	request := http.Request{
 		Method: route.Method,
 		URL:    urlObj,
+		// Body: io.ReadCloser{
+		// 	io.Reader,
+		// 	io.Closer,
+		// },
 	}
 
 	handler, _ := mux.Handler(&request)
