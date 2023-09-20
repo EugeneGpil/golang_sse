@@ -3,8 +3,9 @@ module github.com/EugeneGpil/golang_sse
 go 1.20
 
 require (
+	github.com/EugeneGpil/httpTester v0.0.1
 	github.com/EugeneGpil/router v0.0.5
-	github.com/EugeneGpil/tester v0.0.2
+	github.com/EugeneGpil/tester v0.0.3
 	github.com/r3labs/sse/v2 v2.10.0
 )
 
