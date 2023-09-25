@@ -1,22 +1,14 @@
 {
+    "build": {
+        "dockerfile": "docker/golang/Dockerfile"
+    },
     "customizations": {
         "vscode": {
             "extensions": [
                 "golang.go",
                 "streetsidesoftware.code-spell-checker",
                 "ms-vscode.makefile-tools"
-            ],
-            "settings": {
-                "verifySignature": false
-            }
+            ]
         }
-    },
-    "settings": {
-        "extensions": {
-            "verifySignature": false
-        }
-    },
-    "extensions": {
-        "verifySignature": false
     }
 }
