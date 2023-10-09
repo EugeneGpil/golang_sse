@@ -1,6 +1,6 @@
 dev:
 	docker compose up --build --remove-orphans --detach --force-recreate;
-	code --folder-uri vscode-remote://attached-container+$$(printf "sse-golang-1" | xxd -p)/var/www/back
+	code --folder-uri="vscode-remote://dev-container+$$(pwd | tr -d '\n' | xxd -p)/workspaces/$$(basename "$$(pwd)")"
 
 exec:
 	docker compose exec golang bash
