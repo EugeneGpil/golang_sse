@@ -1,8 +1,10 @@
 package should_create_stream
 
 import (
+	"io"
 	"net/http"
 	"net/url"
+	"strings"
 	"testing"
 
 	"github.com/EugeneGpil/golang_sse/app/ship/router/names"
@@ -21,12 +23,13 @@ var streamName = "message"
 func Test_should_create_stream(t *testing.T) {
 	tester.SetTester(t)
 
-	urlObj, err := url.Parse(route.Url + "?stream=" + streamName)
+	urlObj, err := url.Parse(route.Url)
 	tester.AssertNil(err)
 
 	request := http.Request{
 		Method: route.Method,
 		URL:    urlObj,
+		Body: io.NopCloser(strings.NewReader("{\"stream\": \"" + streamName + "\"}")),
 	}
 
 	handler, _ := mux.Handler(&request)
