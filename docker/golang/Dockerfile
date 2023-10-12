@@ -17,8 +17,7 @@ RUN \
     echo "install build-essential wich includes make utitity to run commands from Makefile" &&\
     apt-get install -y build-essential &&\
     \
-    echo "installing git for displaying changes in vscode" &&\
-    apt-get update &&\
+    echo "installing git for displaying changes for commit in vscode" &&\
     apt-get install -y git &&\
     \
     echo "installing curl to download programs" &&\
@@ -32,6 +31,7 @@ RUN \
     echo "installing vscode server" &&\
     curl -fsSL https://code-server.dev/install.sh | sh
 
+# export go path to use go
 ENV PATH /usr/local/go/bin:${PATH}
 
 # installing golang extensions for vscode
