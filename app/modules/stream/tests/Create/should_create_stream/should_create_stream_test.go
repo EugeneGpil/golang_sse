@@ -1,11 +1,7 @@
 package should_create_stream
 
 import (
-	"bytes"
-	"encoding/json"
-	"io"
 	"net/http"
-	"net/url"
 	"testing"
 
 	"github.com/EugeneGpil/golang_sse/app/ship/router/names"
@@ -24,20 +20,17 @@ var streamName = "messages"
 func Test_should_create_stream(t *testing.T) {
 	tester.SetTester(t)
 
-	urlObj, err := url.Parse(route.Url)
-	tester.AssertNil(err)
-
-	requestBodyBytes, err := json.Marshal(struct {
+	body := struct {
 		Stream string
-	} {
+	}{
 		Stream: streamName,
-	})
-
-	request := http.Request{
-		Method: route.Method,
-		URL:    urlObj,
-		Body: io.NopCloser(bytes.NewReader(requestBodyBytes)),
 	}
+
+	request := httpTester.GetRequest(httpTester.GetRequestDto{
+		Method: route.Method,
+		Url:    route.Url,
+		Body:   body,
+	})
 
 	handler, _ := mux.Handler(&request)
 
