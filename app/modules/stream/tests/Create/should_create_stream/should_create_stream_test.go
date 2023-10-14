@@ -38,9 +38,7 @@ func Test_should_create_stream(t *testing.T) {
 
 	handler.ServeHTTP(writer, &request)
 
-	status := writer.GetStatus()
-
-	tester.AssertSame(http.StatusOK, status)
+	tester.AssertSame(http.StatusOK, writer.GetStatus())
 
 	isStreamExists := sseServer.Get().StreamExists(streamName)
 
