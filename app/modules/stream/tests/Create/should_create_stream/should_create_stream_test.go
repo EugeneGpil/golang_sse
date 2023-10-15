@@ -26,17 +26,11 @@ func Test_should_create_stream(t *testing.T) {
 		Stream: streamName,
 	}
 
-	request := httpTester.GetRequest(httpTester.GetRequestDto{
+	writer := httpTester.Request(httpTester.GetRequestDto{
 		Method: route.Method,
 		Url:    route.Url,
 		Body:   body,
-	})
-
-	handler, _ := mux.Handler(&request)
-
-	writer := httpTester.GetTestResponseWriter()
-
-	handler.ServeHTTP(writer, &request)
+	}, mux)
 
 	tester.AssertSame(http.StatusOK, writer.GetStatus())
 
