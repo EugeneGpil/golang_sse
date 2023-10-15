@@ -26,13 +26,13 @@ func Test_should_create_stream(t *testing.T) {
 		Stream: streamName,
 	}
 
-	writer := httpTester.Request(httpTester.GetRequestDto{
+	response := httpTester.Request(httpTester.GetRequestDto{
 		Method: route.Method,
 		Url:    route.Url,
 		Body:   body,
 	}, mux)
 
-	tester.AssertSame(http.StatusOK, writer.GetStatus())
+	tester.AssertSame(http.StatusOK, response.ResponseWriter.GetStatus())
 
 	isStreamExists := sseServer.Get().StreamExists(streamName)
 
