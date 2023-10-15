@@ -32,7 +32,7 @@ func Test_should_create_stream(t *testing.T) {
 		Body:   body,
 	}, mux)
 
-	tester.AssertSame(http.StatusOK, response.ResponseWriter.GetStatus())
+	tester.AssertSame(http.StatusOK, response.GetStatus())
 
 	isStreamExists := sseServer.Get().StreamExists(streamName)
 
