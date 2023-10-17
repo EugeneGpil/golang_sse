@@ -2,6 +2,8 @@ github.com/EugeneGpil/getFormattedUrls v0.1.0 h1:1lvL6rfRJY8xU0DQrypaHbdUgN/b6AC
 github.com/EugeneGpil/getFormattedUrls v0.1.0/go.mod h1:qe8oqvDy0EDAb8prx4cdJGVxHT5L6+kotLjmqb+/w24=
 github.com/EugeneGpil/httpTester v0.0.8 h1:2TvrKezL7MbfOXyfL1XYt4FH7k22EOA4WCw0DKo+eXc=
 github.com/EugeneGpil/httpTester v0.0.8/go.mod h1:Ch6zHHqEox7b08J1oP2pJcpuuWj4IEUtaejT7rTE5I8=
+github.com/EugeneGpil/request v0.0.2 h1:BUJbcbWwcC5/dHBwkBQUM0zyA1PscbU5TUvv0G79+xs=
+github.com/EugeneGpil/request v0.0.2/go.mod h1:X7dxCGmt/8SkYb/MoALcS7WyIi78Z5+V0OejFpslgZg=
 github.com/EugeneGpil/router v0.0.5 h1:3Ph1SRrDq1M8B1ytXEUdtzK5QZaYK27MJ6XD2D8eFAE=
 github.com/EugeneGpil/router v0.0.5/go.mod h1:dj5RayQXtYjZc3XRea4NlDofcgAzppGn+85TxlB6pgE=
 github.com/EugeneGpil/tester v0.0.3 h1:xkU8l7a9AH2+MpelhBUIyCYxrDoILv9O0XIPdNPNwQE=
