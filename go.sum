@@ -10,6 +10,8 @@ github.com/EugeneGpil/router v0.0.5 h1:3Ph1SRrDq1M8B1ytXEUdtzK5QZaYK27MJ6XD2D8eF
 github.com/EugeneGpil/router v0.0.5/go.mod h1:dj5RayQXtYjZc3XRea4NlDofcgAzppGn+85TxlB6pgE=
 github.com/EugeneGpil/tester v0.0.4 h1:UI0fGoJxo5QM8B1620Dv5nUTm6I6ICRK380Sq/r+9ag=
 github.com/EugeneGpil/tester v0.0.4/go.mod h1:NMXHQcI+RHH36zBbS4AswGnHXvan8Lms89uW+gfYfzo=
+github.com/EugeneGpil/translator v0.0.1 h1:lbA577+da/LLz8l0nbz4g6R/dLLVXW12Bagq8/2Glfo=
+github.com/EugeneGpil/translator v0.0.1/go.mod h1:eTWTV+lHDnOgJG7LT9rk8jUeyinDiEwTMa7496JzjS8=
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=

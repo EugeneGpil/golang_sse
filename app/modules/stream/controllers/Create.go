@@ -25,8 +25,9 @@ func Create(writer http.ResponseWriter, request *http.Request) {
 	response := responsePackage.New(writer)
 
 	if body.Stream == "" {
+		// validation error with code
 		response.WriteValidationErrors(map[string]string{
-			"stream": "Empty string is not allowed",
+			"stream": "errors.empty_stream_is_not_allowed",
 		})
 
 		return

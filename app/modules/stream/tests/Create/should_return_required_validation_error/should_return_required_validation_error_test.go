@@ -30,7 +30,7 @@ func Test_should_return_required_validation_error(t *testing.T) {
 
 	tester.AssertSame(http.StatusUnprocessableEntity, response.GetStatus())
 
-	// responseBody := response.GetBody()
+	responseBody := response.GetBody()
 
 	
 }

@@ -8,6 +8,7 @@ require (
 	github.com/EugeneGpil/response v0.0.1
 	github.com/EugeneGpil/router v0.0.5
 	github.com/EugeneGpil/tester v0.0.4
+	github.com/EugeneGpil/translator v0.0.1
 	github.com/r3labs/sse/v2 v2.10.0
 )
 
