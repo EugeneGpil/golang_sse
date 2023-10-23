@@ -7,6 +7,7 @@ import (
 
 	"github.com/EugeneGpil/golang_sse/app/modules/stream/consts/errorCodes"
 	"github.com/EugeneGpil/golang_sse/app/ship/router/names"
+	"github.com/EugeneGpil/golang_sse/app/ship/translator/lang"
 	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests"
 	"github.com/EugeneGpil/router"
 	"github.com/EugeneGpil/tester"
@@ -46,7 +47,7 @@ func Test_should_return_required_validation_error(t *testing.T) {
 
 	tester.AssertNil(err)
 
-	tester.AssertSame(responseBody.Message == "", false)
+	tester.AssertSame(responseBody.Message, lang.En["errors.request_contains_validation_errors"])
 	tester.AssertSame(responseBody.Errors["stream"] == "", false)
 	tester.AssertSame(responseBody.Code, errorCodes.StreamNameIsRequired)
 }

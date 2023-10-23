@@ -21,6 +21,7 @@ func Create(writer http.ResponseWriter, request *http.Request) {
 	err := requestPackage.New(request).DecodeBody(&body)
 	if err != nil {
 		http.Error(writer, err.Error(), http.StatusBadRequest)
+
 		return
 	}
 
