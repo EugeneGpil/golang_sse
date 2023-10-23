@@ -48,6 +48,6 @@ func Test_should_return_required_validation_error(t *testing.T) {
 	tester.AssertNil(err)
 
 	tester.AssertSame(responseBody.Message, lang.En["errors.request_contains_validation_errors"])
-	tester.AssertSame(responseBody.Errors["stream"] == "", false)
+	tester.AssertSame(responseBody.Errors["stream"], lang.En["errors.empty_stream_is_not_allowed"])
 	tester.AssertSame(responseBody.Code, errorCodes.StreamNameIsRequired)
 }
