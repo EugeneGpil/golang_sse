@@ -1,11 +1,13 @@
 package should_create_stream
 
 import (
+	"encoding/json"
 	"net/http"
 	"testing"
 
 	"github.com/EugeneGpil/golang_sse/app/ship/router/names"
 	"github.com/EugeneGpil/golang_sse/app/ship/sseServer"
+	"github.com/EugeneGpil/golang_sse/app/ship/translator"
 	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests"
 	"github.com/EugeneGpil/router"
 	"github.com/EugeneGpil/tester"
@@ -16,6 +18,11 @@ import (
 var mux = tests.GetMux()
 var route = router.ByName(names.StreamCreate)
 var streamName = "messages"
+var expectedMessage = translator.Translate("success")
+
+type responseBodyType struct {
+	Message string
+}
 
 func Test_should_create_stream(t *testing.T) {
 	tester.SetTester(t)
@@ -33,6 +40,16 @@ func Test_should_create_stream(t *testing.T) {
 	}, mux)
 
 	tester.AssertSame(http.StatusOK, response.GetStatus())
+
+	responseBodyRaw := response.GetBody()
+
+	var responseBody = responseBodyType{}
+
+	err := json.Unmarshal(responseBodyRaw, &responseBody)
+
+	tester.AssertNil(err)
+
+	tester.AssertSame(expectedMessage, responseBody.Message)
 
 	isStreamExists := sseServer.Get().StreamExists(streamName)
 

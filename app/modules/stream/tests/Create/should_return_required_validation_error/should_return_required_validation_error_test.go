@@ -17,7 +17,7 @@ import (
 var mux = tests.GetMux()
 var route = router.ByName(names.StreamCreate)
 
-type ResponseBodyType struct {
+type responseBodyType struct {
 	Message string
 	Errors  map[string]string
 	Code int
@@ -40,7 +40,7 @@ func Test_should_return_required_validation_error(t *testing.T) {
 
 	responseBodyRaw := response.GetBody()
 
-	var responseBody = ResponseBodyType{}
+	var responseBody = responseBodyType{}
 
 	err := json.Unmarshal(responseBodyRaw, &responseBody)
 

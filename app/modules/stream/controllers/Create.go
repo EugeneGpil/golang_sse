@@ -35,5 +35,5 @@ func Create(writer http.ResponseWriter, request *http.Request) {
 
 	sseServer.Get().CreateStream(body.Stream)
 
-	writer.WriteHeader(http.StatusOK)
+	response.WriteSuccess(writer)
 }
