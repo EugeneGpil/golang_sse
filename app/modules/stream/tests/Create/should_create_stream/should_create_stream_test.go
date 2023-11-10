@@ -1,7 +1,6 @@
 package should_create_stream
 
 import (
-	"encoding/json"
 	"net/http"
 	"testing"
 
@@ -41,11 +40,9 @@ func Test_should_create_stream(t *testing.T) {
 
 	tester.AssertSame(http.StatusOK, response.GetStatus())
 
-	responseBodyRaw := response.GetBody()
-
 	var responseBody = responseBodyType{}
 
-	err := json.Unmarshal(responseBodyRaw, &responseBody)
+	err := response.DecodeBody(&responseBody)
 
 	tester.AssertNil(err)
 
