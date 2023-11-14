@@ -12,6 +12,10 @@ import (
 )
 
 func Create(writer http.ResponseWriter, request *http.Request) {
+	/**
+	 * TODO: Придумать как сделать универсальный request, который сам знает, в какой тип декодить body.
+	 *	И прокидывать сразу его сюда. Поправить package router
+	 */
 	var body struct {
 		Stream string
 	}
