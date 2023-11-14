@@ -11,12 +11,10 @@ import (
 	requestPackage "github.com/EugeneGpil/request"
 )
 
-type requestBody struct {
-	Stream string
-}
-
 func Create(writer http.ResponseWriter, request *http.Request) {
-	var body requestBody
+	var body struct {
+		Stream string
+	}
 
 	err := requestPackage.New(request).DecodeBody(&body)
 	if err != nil {

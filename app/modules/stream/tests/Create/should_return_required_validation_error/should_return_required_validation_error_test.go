@@ -1,7 +1,6 @@
 package should_return_required_validation_error
 
 import (
-	"encoding/json"
 	"net/http"
 	"testing"
 
@@ -38,11 +37,9 @@ func Test_should_return_required_validation_error(t *testing.T) {
 
 	tester.AssertSame(http.StatusUnprocessableEntity, response.GetStatus())
 
-	responseBodyRaw := response.GetBody()
-
 	var responseBody = responseBodyType{}
 
-	err := json.Unmarshal(responseBodyRaw, &responseBody)
+	err := response.DecodeBody(&responseBody)
 
 	tester.AssertNil(err)
 
