@@ -32,4 +32,6 @@ func Remove(writer http.ResponseWriter, request *http.Request) {
 	}
 
 	sseServer.Get().RemoveStream(body.Stream)
+
+	response.WriteSuccess(writer)
 }

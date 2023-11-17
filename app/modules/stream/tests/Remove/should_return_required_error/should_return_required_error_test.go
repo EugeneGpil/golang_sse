@@ -1,4 +1,4 @@
-package should_return_required_validation_error
+package should_return_required_error
 
 import (
 	"net/http"
@@ -14,30 +14,28 @@ import (
 )
 
 var mux = tests.GetMux()
-var route = router.ByName(names.StreamCreate)
+var route = router.ByName(names.StreamRemove)
 
-type responseBodyType struct {
-	Message string
-	Errors  map[string]string
-	Code int
-}
-
-func Test_should_return_required_validation_error(t *testing.T) {
+func Test_should_return_required_error(t *testing.T) {
 	tester.SetTester(t)
 
 	response := httpTester.Request(httpTester.GetRequestDto{
 		Method: route.Method,
-		Url:    route.Url,
+		Url: route.Url,
 		Body: struct {
 			Stream string
-		}{
+		} {
 			Stream: "",
 		},
 	}, mux)
 
 	tester.AssertSame(http.StatusUnprocessableEntity, response.GetStatus())
 
-	var responseBody = responseBodyType{}
+	var responseBody struct {
+		Message string
+		Errors  map[string]string
+		Code int
+	}
 
 	err := response.DecodeBody(&responseBody)
 
