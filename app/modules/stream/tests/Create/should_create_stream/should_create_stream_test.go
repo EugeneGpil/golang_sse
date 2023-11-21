@@ -7,14 +7,14 @@ import (
 	"github.com/EugeneGpil/golang_sse/app/ship/router/names"
 	"github.com/EugeneGpil/golang_sse/app/ship/sseServer"
 	"github.com/EugeneGpil/golang_sse/app/ship/translator"
-	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests"
+	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests/GetMux"
 	"github.com/EugeneGpil/router"
 	"github.com/EugeneGpil/tester"
 
 	httpTester "github.com/EugeneGpil/httpTester"
 )
 
-var mux = tests.GetMux()
+var mux = GetMux.GetMux()
 var route = router.ByName(names.StreamCreate)
 var streamName = "messages"
 var expectedMessage = translator.Translate("success")

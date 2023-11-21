@@ -1,4 +1,4 @@
-package tests
+package GetMux
 
 import (
 	"net/http"

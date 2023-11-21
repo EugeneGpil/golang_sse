@@ -11,6 +11,7 @@ import (
 	requestPackage "github.com/EugeneGpil/request"
 )
 
+// TODO: вынести общее с Remove.go
 func Create(writer http.ResponseWriter, request *http.Request) {
 	var body struct {
 		Stream string

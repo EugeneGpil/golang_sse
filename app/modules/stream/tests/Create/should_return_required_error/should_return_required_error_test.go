@@ -6,16 +6,17 @@ import (
 
 	"github.com/EugeneGpil/golang_sse/app/modules/stream/consts/errorCodes"
 	"github.com/EugeneGpil/golang_sse/app/ship/router/names"
-	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests"
+	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests/GetMux"
 	"github.com/EugeneGpil/router"
 	"github.com/EugeneGpil/tester"
 
 	httpTester "github.com/EugeneGpil/httpTester"
 )
 
-var mux = tests.GetMux()
+var mux = GetMux.GetMux()
 var route = router.ByName(names.StreamCreate)
 
+//TODO: Вынести общее с Remove/should_return_required_error
 func Test_should_return_required_error(t *testing.T) {
 	tester.SetTester(t)
 
