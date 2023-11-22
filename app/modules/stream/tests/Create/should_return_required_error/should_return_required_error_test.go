@@ -9,17 +9,21 @@ import (
 )
 
 func Test_should_return_required_error(t *testing.T) {
+	requestBody := struct {
+		Stream string
+	}{
+		Stream: "",
+	}
+
+	expectedErrorKeys := []string{
+		"stream",
+	}
+
 	RequestAndAssertError.RequestAndAssertError(RequestAndAssertError.RequestAndAssertErrorArgs{
-		T: t,
-		RouteName: names.StreamCreate,
-		RequestBody: struct {
-			Stream string
-		}{
-			Stream: "",
-		},
-		ExpectedErrorKeys: []string{
-			"stream",
-		},
+		T:                 t,
+		RouteName:         names.StreamCreate,
+		RequestBody:       requestBody,
+		ExpectedErrorKeys: expectedErrorKeys,
 		ExpectedErrorCode: errorCodes.StreamNameIsRequired,
 	})
 }
