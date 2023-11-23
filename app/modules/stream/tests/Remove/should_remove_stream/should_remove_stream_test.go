@@ -1,4 +1,4 @@
-package should_create_stream
+package should_remove_stream
 
 import (
 	"net/http"
@@ -15,16 +15,22 @@ import (
 )
 
 var mux = GetMux.GetMux()
-var route = router.ByName(names.StreamCreate)
-var streamName = "messages"
+var streamName = "the_test_stream"
+var route = router.ByName(names.StreamRemove)
 var expectedMessage = translator.Translate("success")
 
-func Test_should_create_stream(t *testing.T) {
+func Test_should_remove_stream(t *testing.T) {
 	tester.SetTester(t)
 
-	body := struct {
+	sseServer.Get().CreateStream(streamName)
+
+	isStreamExists := sseServer.Get().StreamExists(streamName)
+
+	tester.AssertSame(isStreamExists, true)
+
+	body := struct{
 		Stream string
-	}{
+	} {
 		Stream: streamName,
 	}
 
@@ -46,7 +52,7 @@ func Test_should_create_stream(t *testing.T) {
 
 	tester.AssertSame(expectedMessage, responseBody.Message)
 
-	doesStreamExist := sseServer.Get().StreamExists(streamName)
+	doesStreamExistAfterRequest := sseServer.Get().StreamExists(streamName)
 
-	tester.AssertSame(doesStreamExist, true)
+	tester.AssertSame(doesStreamExistAfterRequest, false)
 }
