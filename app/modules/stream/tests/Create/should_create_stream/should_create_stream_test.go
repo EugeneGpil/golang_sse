@@ -5,8 +5,8 @@ import (
 	"testing"
 
 	"github.com/EugeneGpil/golang_sse/app/ship/router/names"
-	"github.com/EugeneGpil/golang_sse/app/ship/sseServer"
 	"github.com/EugeneGpil/golang_sse/app/ship/translator"
+	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests/AssertDoesStreamExists"
 	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests/GetMux"
 	"github.com/EugeneGpil/router"
 	"github.com/EugeneGpil/tester"
@@ -46,7 +46,5 @@ func Test_should_create_stream(t *testing.T) {
 
 	tester.AssertSame(expectedMessage, responseBody.Message)
 
-	doesStreamExist := sseServer.Get().StreamExists(streamName)
-
-	tester.AssertSame(doesStreamExist, true)
+	AssertDoesStreamExists.AssertDoesStreamExists(t, streamName)
 }

@@ -8,6 +8,7 @@ import (
 	"github.com/EugeneGpil/golang_sse/app/ship/sseServer"
 	"github.com/EugeneGpil/golang_sse/app/ship/translator"
 	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests/GetMux"
+	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests/AssertDoesStreamExists"
 	"github.com/EugeneGpil/router"
 	"github.com/EugeneGpil/tester"
 
@@ -54,7 +55,5 @@ func Test_should_return_ok_if_stream_already_exists(t *testing.T) {
 	tester.AssertSame(expectedMessage, responseBody.Message)
 
 	//TODO tester.assertDoesStreamExists(streamName)
-	doesStreamExistAfterRequest := sseServer.Get().StreamExists(streamName)
-
-	tester.AssertSame(doesStreamExistAfterRequest, true)
+	AssertDoesStreamExists.AssertDoesStreamExists(t, streamName)
 }
