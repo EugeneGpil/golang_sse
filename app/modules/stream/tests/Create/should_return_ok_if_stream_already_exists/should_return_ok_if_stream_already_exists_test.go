@@ -54,6 +54,5 @@ func Test_should_return_ok_if_stream_already_exists(t *testing.T) {
 
 	tester.AssertSame(expectedMessage, responseBody.Message)
 
-	//TODO tester.assertDoesStreamExists(streamName)
-	AssertDoesStreamExists.AssertDoesStreamExists(t, streamName)
+	AssertDoesStreamExists.AssertDoesStreamExists(t, streamName, true)
 }

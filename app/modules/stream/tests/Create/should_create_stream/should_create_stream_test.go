@@ -46,5 +46,5 @@ func Test_should_create_stream(t *testing.T) {
 
 	tester.AssertSame(expectedMessage, responseBody.Message)
 
-	AssertDoesStreamExists.AssertDoesStreamExists(t, streamName)
+	AssertDoesStreamExists.AssertDoesStreamExists(t, streamName, true)
 }

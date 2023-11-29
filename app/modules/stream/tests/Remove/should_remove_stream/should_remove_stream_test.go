@@ -7,6 +7,7 @@ import (
 	"github.com/EugeneGpil/golang_sse/app/ship/router/names"
 	"github.com/EugeneGpil/golang_sse/app/ship/sseServer"
 	"github.com/EugeneGpil/golang_sse/app/ship/translator"
+	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests/AssertDoesStreamExists"
 	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests/GetMux"
 	"github.com/EugeneGpil/router"
 	"github.com/EugeneGpil/tester"
@@ -52,7 +53,5 @@ func Test_should_remove_stream(t *testing.T) {
 
 	tester.AssertSame(expectedMessage, responseBody.Message)
 
-	doesStreamExistAfterRequest := sseServer.Get().StreamExists(streamName)
-
-	tester.AssertSame(doesStreamExistAfterRequest, false)
+	AssertDoesStreamExists.AssertDoesStreamExists(t, streamName, false)
 }

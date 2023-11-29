@@ -7,10 +7,10 @@ import (
 	"github.com/EugeneGpil/tester"
 )
 
-func AssertDoesStreamExists(t *testing.T, streamName string) {
+func AssertDoesStreamExists(t *testing.T, streamName string, doesStreamExists bool) {
 	tester.SetTester(t)
 
 	doesStreamExistAfterRequest := sseServer.Get().StreamExists(streamName)
 
-	tester.AssertSame(doesStreamExistAfterRequest, true)
+	tester.AssertSame(doesStreamExistAfterRequest, doesStreamExists)
 }
