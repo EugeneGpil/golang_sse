@@ -29,23 +29,19 @@ func Test_should_remove_stream(t *testing.T) {
 
 	tester.AssertSame(isStreamExists, true)
 
-	body := struct{
-		Stream string
-	} {
-		Stream: streamName,
-	}
-
 	response := httpTester.Request(httpTester.GetRequestDto{
 		Method: route.Method,
 		Url:    route.Url,
-		Body:   body,
+		Query: map[string]string{
+			"stream": streamName,
+		},
 	}, mux)
 
 	tester.AssertSame(http.StatusOK, response.GetStatus())
 
 	responseBody := struct {
 		Message string
-	} {}
+	}{}
 
 	err := response.DecodeBody(&responseBody)
 
