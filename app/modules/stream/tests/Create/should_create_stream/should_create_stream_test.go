@@ -7,6 +7,7 @@ import (
 	"github.com/EugeneGpil/golang_sse/app/ship/router/names"
 	"github.com/EugeneGpil/golang_sse/app/ship/translator"
 	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests/AssertDoesStreamExists"
+	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests/AssertResponseMessage"
 	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests/GetMux"
 	"github.com/EugeneGpil/router"
 	"github.com/EugeneGpil/tester"
@@ -36,15 +37,7 @@ func Test_should_create_stream(t *testing.T) {
 
 	tester.AssertSame(http.StatusOK, response.GetStatus())
 
-	responseBody := struct {
-		Message string
-	} {}
-
-	err := response.DecodeBody(&responseBody)
-
-	tester.AssertNil(err)
-
-	tester.AssertSame(expectedMessage, responseBody.Message)
+	AssertResponseMessage.AssertResponseMessage(response, expectedMessage)
 
 	AssertDoesStreamExists.AssertDoesStreamExists(t, streamName, true)
 }

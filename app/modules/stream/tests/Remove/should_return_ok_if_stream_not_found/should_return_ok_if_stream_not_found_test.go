@@ -8,6 +8,7 @@ import (
 	"github.com/EugeneGpil/golang_sse/app/ship/sseServer"
 	"github.com/EugeneGpil/golang_sse/app/ship/translator"
 	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests/AssertDoesStreamExists"
+	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests/AssertResponseMessage"
 	"github.com/EugeneGpil/golang_sse/app/ship/utils/tests/GetMux"
 	"github.com/EugeneGpil/router"
 	"github.com/EugeneGpil/tester"
@@ -37,16 +38,7 @@ func Test_should_return_ok_if_stream_not_found(t *testing.T) {
 
 	tester.AssertSame(http.StatusOK, response.GetStatus())
 
-	//TODO tester.assertMessage(response, expectedMessage)
-	responseBody := struct {
-		Message string
-	} {}
-
-	err := response.DecodeBody(&responseBody)
-
-	tester.AssertNil(err)
-
-	tester.AssertSame(expectedMessage, responseBody.Message)
+	AssertResponseMessage.AssertResponseMessage(response, expectedMessage)
 
 	AssertDoesStreamExists.AssertDoesStreamExists(t, streamName, false)
 }
