@@ -20,11 +20,7 @@ func RequestAndAssertError(args RequestAndAssertErrorArgs) {
 	response := httpTester.Request(httpTester.GetRequestDto{
 		Method: route.Method,
 		Url:    route.Url,
-		Body: struct {
-			Stream string
-		}{
-			Stream: "",
-		},
+		Body:   args.RequestBody,
 	}, mux)
 
 	tester.AssertSame(http.StatusUnprocessableEntity, response.GetStatus())
@@ -32,7 +28,7 @@ func RequestAndAssertError(args RequestAndAssertErrorArgs) {
 	var responseBody struct {
 		Message string
 		Errors  map[string]string
-		Code int
+		Code    int
 	}
 
 	err := response.DecodeBody(&responseBody)

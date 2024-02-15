@@ -8,4 +8,5 @@ type RequestAndAssertErrorArgs struct {
 	RequestBody interface{}
 	ExpectedErrorKeys []string
 	ExpectedErrorCode int
+	Query map[string]string
 }

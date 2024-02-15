@@ -23,7 +23,9 @@ func New(writer http.ResponseWriter, request *http.Request) StreamValidator {
 }
 
 func (streamValidator StreamValidator) Run() string {
-	isQueryParams := streamValidator.request.Method == http.MethodDelete
+	requestMethod := streamValidator.request.Method
+
+	isQueryParams := requestMethod == http.MethodGet || requestMethod == http.MethodDelete
 
 	if isQueryParams {
 		return streamValidator.getStreamQueryParam()
