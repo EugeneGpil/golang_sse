@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/EugeneGpil/httpTester v0.0.11
 	github.com/EugeneGpil/request v0.0.3
-	github.com/EugeneGpil/response v0.0.3
+	github.com/EugeneGpil/response v0.0.4
 	github.com/EugeneGpil/router v0.0.5
 	github.com/EugeneGpil/tester v0.0.4
 	github.com/EugeneGpil/translator v0.0.2

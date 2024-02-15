@@ -4,8 +4,8 @@ github.com/EugeneGpil/httpTester v0.0.11 h1:Zp3C0CrMCVxPAmMmndf/ftkMvSRzvHT60xuZ
 github.com/EugeneGpil/httpTester v0.0.11/go.mod h1:d8Wdrme3/ZrSpnvPxnMEqb/bpuSJulfQ+CTwivW6kgw=
 github.com/EugeneGpil/request v0.0.3 h1:4Ilb+nIgvs5bovVjAs6Qu+/7ip1jLb966h8v8aPi69k=
 github.com/EugeneGpil/request v0.0.3/go.mod h1:UpLVndO4LWRYJvRYFzScPDRG59X+jvfA2upNWBGGAzQ=
-github.com/EugeneGpil/response v0.0.3 h1:KqZPew/BycMRK5drGyyukcBvQ0IfRNQ5J2y2C3pJjFc=
-github.com/EugeneGpil/response v0.0.3/go.mod h1:mXnWAsU4sks56KtmrMjZ4F6ZqyQu9e8XMqtGMyIZ0N4=
+github.com/EugeneGpil/response v0.0.4 h1:x9XpHaIJ6JPtXoevCAS26IOKvJU+s2pH4vqMcm8pfJ8=
+github.com/EugeneGpil/response v0.0.4/go.mod h1:mXnWAsU4sks56KtmrMjZ4F6ZqyQu9e8XMqtGMyIZ0N4=
 github.com/EugeneGpil/responseWriter v0.0.1 h1:xgBZWdH/vLm3rRvSZ1mYR0PrrA3U7xO0aE1l9rZ9oxE=
 github.com/EugeneGpil/responseWriter v0.0.1/go.mod h1:G46dIm82OGMuCeaeNugtYJNL9daCnrldHE9cLiz/Qc8=
 github.com/EugeneGpil/router v0.0.5 h1:3Ph1SRrDq1M8B1ytXEUdtzK5QZaYK27MJ6XD2D8eFAE=
