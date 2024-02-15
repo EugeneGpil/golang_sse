@@ -13,5 +13,11 @@ func Listen(writer http.ResponseWriter, request *http.Request) {
 		return
 	}
 
+	if (!sseServer.Get().StreamExists(stream)) {
+		writer.WriteHeader(http.StatusNotFound)
+
+		return
+	}
+
 	sseServer.Get().ServeHTTP(writer, request)
 }
