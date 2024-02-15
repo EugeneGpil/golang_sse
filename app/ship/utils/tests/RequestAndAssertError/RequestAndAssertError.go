@@ -21,6 +21,7 @@ func RequestAndAssertError(args RequestAndAssertErrorArgs) {
 		Method: route.Method,
 		Url:    route.Url,
 		Body:   args.RequestBody,
+		Query:  args.Query,
 	}, mux)
 
 	tester.AssertSame(http.StatusUnprocessableEntity, response.GetStatus())
