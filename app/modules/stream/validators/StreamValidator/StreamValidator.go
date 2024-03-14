@@ -8,22 +8,23 @@ import (
 	"github.com/EugeneGpil/golang_sse/app/ship/translator"
 
 	requestPackage "github.com/EugeneGpil/request"
+	responsePackage "github.com/EugeneGpil/response"
 )
 
 type StreamValidator struct {
-	writer  http.ResponseWriter
-	request *http.Request
+	response responsePackage.Response
+	request  *requestPackage.Request
 }
 
-func New(writer http.ResponseWriter, request *http.Request) StreamValidator {
+func New(response responsePackage.Response, request *requestPackage.Request) StreamValidator {
 	return StreamValidator{
-		writer:  writer,
-		request: request,
+		response: response,
+		request:  request,
 	}
 }
 
 func (streamValidator StreamValidator) Run() string {
-	requestMethod := streamValidator.request.Method
+	requestMethod := streamValidator.request.GetMethod()
 
 	isQueryParams := requestMethod == http.MethodGet || requestMethod == http.MethodDelete
 
@@ -35,7 +36,7 @@ func (streamValidator StreamValidator) Run() string {
 }
 
 func (streamValidator StreamValidator) getStreamQueryParam() string {
-	queryParams := requestPackage.New(streamValidator.request).GetSimpleQueryParams()
+	queryParams := streamValidator.request.GetSimpleQueryParams()
 
 	stream, isset := queryParams["stream"]
 	if isset == false || stream == "" {
@@ -52,9 +53,9 @@ func (streamValidator StreamValidator) getStreamBodyParam() string {
 		Stream string
 	}
 
-	err := requestPackage.New(streamValidator.request).DecodeBody(&body)
+	err := streamValidator.request.DecodeBody(&body)
 	if err != nil {
-		http.Error(streamValidator.writer, err.Error(), http.StatusBadRequest)
+		streamValidator.response.WriteBadRequest(err.Error())
 
 		return ""
 	}
@@ -69,7 +70,7 @@ func (streamValidator StreamValidator) getStreamBodyParam() string {
 }
 
 func (streamValidator StreamValidator) writeError() {
-	response.WriteValidationErrors(streamValidator.writer, errorCodes.StreamNameIsRequired, map[string]string{
+	response.WriteValidationErrors(streamValidator.response, errorCodes.StreamNameIsRequired, map[string]string{
 		"stream": translator.Translate("errors.empty_stream_is_not_allowed"),
 	})
 }
